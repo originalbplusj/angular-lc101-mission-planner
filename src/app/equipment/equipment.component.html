@@ -4,10 +4,10 @@
     <li *ngFor="let item of equipmentItems">
       <button [class.active]="cargoHold.length < maxItems || cargoMass + item.mass<=maximumAllowedMass"
         (click)="addItem(item)"
-        [disabled]="(cargoHold.length >= maxItems) || cargoMass + item.mass > maximumAllowedMass">Add to Cargo
+        [disabled]="(cargoHold.length >= maxItems) || (cargoMass + item.mass > maximumAllowedMass) || (cargoHold.includes(item))">Add
+        to Cargo
         Hold</button>
       {{item.name}}, {{item.mass}} kg
-
     </li>
   </ol>
 </div>
